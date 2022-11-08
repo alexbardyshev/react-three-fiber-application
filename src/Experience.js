@@ -16,21 +16,25 @@ export default function Experience (  ) {
     return (
     <>
         <orbitControls args={[camera, gl.domElement]} />
+
+        <directionalLight position={[1, 2, 3]} intensity={1} />
+        <ambientLight intensity={0.2} />
+
         <group ref={ cubeRef }>
             <mesh rotation-y={ Math.PI * 0.23 } position-x={ 2 } scale={ 1.5 }>
                 <boxGeometry scale={ 1.5 } />
-                <meshBasicMaterial color='mediumpurple' />
+                <meshStandardMaterial color='mediumpurple' />
             </mesh>
 
             <mesh position-x={ -2 } scale={ 1 }>
                 <sphereGeometry />
-                <meshBasicMaterial color='orange'/>
+                <meshStandardMaterial color='orange'/>
             </mesh>
         </group>
 
-        <mesh rotation-x={Math.PI / 2} position-y={ -2 } scale={ 10 }>
+        <mesh position-y={ -2 } scale={ 10 }>
             <planeGeometry />
-            <meshBasicMaterial color='greenyellow' wireframe />
+            <meshStandardMaterial color='greenyellow' />
         </mesh>
     </>
   )
